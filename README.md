@@ -27,9 +27,6 @@
   <img src="https://streak-stats.demolab.com/?user=OnlyDev321&theme=radical&hide_border=true&cache_seconds=86400" alt="OnlyDev321's GitHub Streak" width="49%" />
 </p>
 <p align="center">
-  <img src="https://trophy.ryglcloud.net/?username=OnlyDev321&theme=radical&no-frame=true&no-bg=true&margin-w=4&cache_seconds=86400" alt="OnlyDev's GitHub Trophies" />
-</p>
-<p align="center">
   <img height="280em" src="https://github-readme-activity-graph.vercel.app/graph?username=OnlyDev321&theme=radical&radius=10" alt="OnlyDev321's Activity Graph" />
 </p>
 
