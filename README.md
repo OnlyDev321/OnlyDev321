@@ -9,17 +9,26 @@
 <img src="https://user-images.githubusercontent.com/74038190/212750155-3ceddfbd-19d3-40a3-87af-8d329c8323c4.gif" alt="Banner" width="100%" />
 
 ## 📌 About Me
+
 - 🚀 Full-Stack Web Developer passionate about building modern, scalable, and user-friendly web applications.
 - 💻 Experienced with React, JavaScript, Spring Boot, REST APIs, and database design.
 - 🌱 Continuously learning new technologies and striving to create impactful digital solutions.
 
-
 ## 🧠 My Focus Areas
-- Web Development
-- Design UX/UI
 
+- 🌐 Web Development
+- ✨ UX/UI Design
+
+## 🎯 Current Goals
+
+- 🇰🇷 Become a Bridge Software Engineer (BrSE)
+- ☕ Master Java & Spring Boot
+- ⚛️ Build scalable React applications
+- ☁️ Learn AWS deployment and architecture
+- 📚 Strengthen software design and system thinking
 
 ## 📊 GitHub Stats & Trophies
+
 <p align="center">
   <a href="https://github.com/OnlyDev321">
     <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=OnlyDev321&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" alt="OnlyDev321's GitHub Stats" />
@@ -29,7 +38,6 @@
 <p align="center">
   <img height="280em" src="https://github-readme-activity-graph.vercel.app/graph?username=OnlyDev321&theme=radical&radius=10" alt="OnlyDev321's Activity Graph" />
 </p>
-
 
 ## 🛠️ Languages & Tools
 
@@ -103,6 +111,7 @@
 <br/>
 
 ## 🔗 Connect with Me
+
 <p align="center">
   <a href="mailto:onlydev.321@gmail.com"><img align="center" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=00FFFF" alt="OnlyDev's Email"/></a>&nbsp;&nbsp;
   <a href="https://www.facebook.com/tran.hau.691306/"><img align="center" src="https://img.shields.io/badge/Website-46BC99?style=for-the-badge&logo=About.me&logoColor=white" alt="Personal Website"/></a>
@@ -119,4 +128,3 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
-
