@@ -25,6 +25,7 @@
 - ☕ Master Java & Spring Boot
 - ⚛️ Build scalable React applications
 - ☁️ Learn AWS deployment and architecture
+- 🤖 Integrate AI into real-world products and workflows
 - 📚 Strengthen software design and system thinking
 
 ## 📊 GitHub Stats & Trophies
@@ -43,6 +44,7 @@
 
 <h3 align="center">Programming Languages</h3>
 <p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" width="40" />&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++" width="40" />
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" />&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="40" />&nbsp;
