@@ -32,12 +32,16 @@
 
 <p align="center">
   <a href="https://github.com/OnlyDev321">
-    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=OnlyDev321&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" alt="OnlyDev321's GitHub Stats" />
+    <img width="49%" src="https://github-readme-stats-eight-theta.vercel.app/api?username=OnlyDev321&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" alt="OnlyDev321's GitHub Stats" />
   </a>
+</p>
+
+<p align="center">
   <img src="https://streak-stats.demolab.com?user=OnlyDev321&theme=radical" alt="OnlyDev321's GitHub Streak" width="49%" />
 </p>
+
 <p align="center">
-  <img height="280em" src="https://github-readme-activity-graph.vercel.app/graph?username=OnlyDev321&theme=radical&radius=10" alt="OnlyDev321's Activity Graph" />
+  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=OnlyDev321&theme=radical&radius=10&custom_title=OnlyDev321%20Activity%20Graph" alt="OnlyDev321's Activity Graph" />
 </p>
 
 ## 🛠️ Languages & Tools
@@ -111,7 +115,10 @@
   </a>
 </p>
 
-![Top language](https://stats.pphat.top/languages?username=OnlyDev321)
+<p align="center">
+  <img src="https://stats.pphat.top/languages?username=OnlyDev321" alt="Top language" />
+</p>
+
 <br/>
 
 ## 🔗 Connect with Me
