@@ -34,6 +34,7 @@
   <a href="https://github.com/OnlyDev321">
     <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=OnlyDev321&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" alt="OnlyDev321's GitHub Stats" />
   </a>
+  <!-- <img src="https://streak-stats.demolab.com/?user=OnlyDev321&theme=radical&hide_border=true&cache_seconds=86400" alt="OnlyDev321's GitHub Streak" width="49%" /> -->
   <img src="https://streak-stats.demolab.com/?user=OnlyDev321&theme=radical&hide_border=true&cache_seconds=86400" alt="OnlyDev321's GitHub Streak" width="49%" />
 </p>
 <p align="center">
