@@ -22,7 +22,7 @@
 ## 🎯 Current Goals
 
 - 🇰🇷 Become a Bridge Software Engineer (BrSE)
-- ☕ Master Java & Spring Boot
+- 🚀 Develop high-performance full-stack applications with smooth frontend-backend integration
 - ⚛️ Build scalable React applications
 - ☁️ Learn AWS deployment and architecture
 - 🤖 Integrate AI into real-world products and workflows
