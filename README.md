@@ -22,11 +22,11 @@
 ## 🎯 Current Goals
 
 - 🇰🇷 Become a Bridge Software Engineer (BrSE)
-- 🚀 Develop high-performance full-stack applications with smooth frontend-backend integration
 - ⚛️ Build scalable React applications
 - ☁️ Learn AWS deployment and architecture
 - 🤖 Integrate AI into real-world products and workflows
 - 📚 Strengthen software design and system thinking
+- 🚀 Develop high-performance full-stack applications with smooth frontend-backend integration
 
 ## 📊 GitHub Stats & Trophies
 
