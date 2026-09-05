@@ -32,12 +32,12 @@
 
 <p align="center">
   <a href="https://github.com/OnlyDev321">
-    <img width="49%" src="https://github-readme-stats-eight-theta.vercel.app/api?username=OnlyDev321&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" alt="OnlyDev321's GitHub Stats" />
+    <img width="49%" src="https://raw.githubusercontent.com/OnlyDev321/OnlyDev321/output/stats.svg" alt="OnlyDev321's GitHub Stats" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=OnlyDev321&theme=radical" alt="OnlyDev321's GitHub Streak" width="49%" />
+  <img src="https://raw.githubusercontent.com/OnlyDev321/OnlyDev321/output/streak.svg" alt="OnlyDev321's GitHub Streak" width="49%" />
 </p>
 
 <p align="center">

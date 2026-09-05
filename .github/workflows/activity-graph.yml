@@ -1,4 +1,4 @@
-name: Update Activity Graph
+name: Update Profile Stats & Activity Graph
 
 on:
   schedule:
@@ -16,6 +16,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: "username=${{ github.repository_owner }}&layout=compact&theme=radical&border_radius=10"
+          path: dist/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate streak stats
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: "user=${{ github.repository_owner }}&theme=radical&border_radius=10"
+          path: dist/streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Generate activity graph
         uses: maurodesouza/github-readme-activity-graph-action@v1
         with:
@@ -24,7 +39,7 @@ jobs:
           output_path: dist/activity-graph.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push activity-graph.svg to output branch
+      - name: Push SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
