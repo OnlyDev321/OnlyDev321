@@ -17,12 +17,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate stats card
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: stats
-          options: "username=${{ github.repository_owner }}&layout=compact&theme=radical&border_radius=10"
-          path: dist/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p dist
+          curl -s --fail --retry 3 "https://github-readme-stats-eight-theta.vercel.app/api?username=${{ github.repository_owner }}&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" -o dist/stats.svg
 
       - name: Generate streak stats
         uses: DenverCoder1/github-readme-streak-stats@main
