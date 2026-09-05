@@ -20,7 +20,7 @@ jobs:
         uses: maurodesouza/github-readme-activity-graph-action@v1
         with:
           username: ${{ github.repository_owner }}
-          options: "theme=radical&radius=10&custom_title=OnlyDev321 Activity Graph"
+          options: "theme=redical&bg_color=141321&title_color=fe428e&line=fe428e&color=a9fef7&point=f8d847&border_color=E4E2E2&radius=10&custom_title=OnlyDev321 Activity Graph"
           output_path: dist/activity-graph.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
