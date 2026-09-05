@@ -41,7 +41,7 @@
 </p>
 
 <p align="center">
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=OnlyDev321&amp;theme=radical&amp;radius=10&amp;custom_title=OnlyDev321%20Activity%20Graph" alt="OnlyDev321's Activity Graph" />
+  <img width="100%" src="https://raw.githubusercontent.com/OnlyDev321/OnlyDev321/output/activity-graph.svg" alt="OnlyDev321's Activity Graph" />
 </p>
 
 ## 🛠️ Languages & Tools
