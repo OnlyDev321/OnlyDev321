@@ -3,6 +3,9 @@
 <p align="center">
   <a href="https://komarev.com/ghpvc/?username=OnlyDev321">
     <img src="https://komarev.com/ghpvc/?username=OnlyDev321&label=Profile%20views&color=00FFFF&style=flat-square" alt="OnlyDev321's profile views" />
+  </a>&nbsp;&nbsp;
+  <a href="https://onlydev321.github.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-onlydev321.github.io-a371f7?style=flat-square&logo=googlechrome&logoColor=white" alt="OnlyDev's Portfolio" />
   </a>
 </p>
 
