@@ -132,7 +132,7 @@
 </p>
 
 <div align="center">
-  <img src="./pic.jpg" alt="Sorry, my love is committed to code — not to you." />
+  <img src="/quote1.svg" alt="One day at a time." />
 </div>
 
 <p align="center">
