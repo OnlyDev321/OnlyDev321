@@ -132,7 +132,7 @@
 </p>
 
 <div align="center">
-  <img src="./quote.svg" alt="Sorry, my love is committed to code — not to you." />
+  <img src="./pic.jpg" alt="Sorry, my love is committed to code — not to you." />
 </div>
 
 <p align="center">
