@@ -131,9 +131,9 @@
   <a href="https://www.facebook.com/tran.hau.691306/"><img align="center" src="https://img.shields.io/badge/Website-46BC99?style=for-the-badge&logo=About.me&logoColor=white" alt="Personal Website"/></a>
 </p>
 
-<div align="center">
-  <img src="/quote1.svg" alt="One day at a time." />
-</div>
+<!-- <div align="center">
+  <img src="./quote.svg" alt="Sorry, my love is committed to code — not to you." />
+</div> -->
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/czl9707/gh-space-shooter/main/example.gif" alt="Space shooter contribution graph" />
