@@ -14,8 +14,8 @@
 ## 📌 About Me
 
 - 🚀 Full-Stack Web Developer passionate about building modern, scalable, and user-friendly web applications.
-- 💻 Experienced with React, JavaScript, Spring Boot, REST APIs, and database design.
-- 🌱 Continuously learning new technologies and striving to create impactful digital solutions.
+<!-- - 💻 Experienced with React, JavaScript, Spring Boot, REST APIs, and database design.
+- 🌱 Continuously learning new technologies and striving to create impactful digital solutions. -->
 
 ## 🧠 My Focus Areas
 
@@ -25,11 +25,11 @@
 ## 🎯 Current Goals
 
 - 🇰🇷 Become a Bridge Software Engineer (BrSE)
-- ⚛️ Build scalable React applications
+<!-- - ⚛️ Build scalable React applications
 - ☁️ Learn AWS deployment and architecture
 - 🤖 Integrate AI into real-world products and workflows
 - 📚 Strengthen software design and system thinking
-- 🚀 Develop high-performance full-stack applications with smooth frontend-backend integration
+- 🚀 Develop high-performance full-stack applications with smooth frontend-backend integration -->
 
 ## 📊 GitHub Stats & Trophies
 
