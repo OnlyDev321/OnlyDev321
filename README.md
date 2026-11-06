@@ -122,7 +122,7 @@
 </p>
 
 <p align="center">
-  <img src="https://stats.pphat.top/languages?username=OnlyDev321" alt="Top language" />
+  <img width="100%" src="https://raw.githubusercontent.com/OnlyDev321/OnlyDev321/output/cyberpunk-languages.svg" alt="CyberPunk Top Languages" />
 </p>
 
 <br/>

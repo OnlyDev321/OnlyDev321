@@ -60,6 +60,14 @@ jobs:
           output_path: dist/activity-graph.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Generate Cyberpunk Top Languages card
+        run: |
+          mkdir -p dist
+          node scripts/generate-cyberpunk-card.js
+        env:
+          GITHUB_USER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Push SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
