@@ -44,7 +44,31 @@ jobs:
       - name: Generate stats card
         run: |
           mkdir -p dist
-          curl -s --fail --retry 3 "https://github-readme-stats-eight-theta.vercel.app/api?username=${{ github.repository_owner }}&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" -o dist/stats.svg
+          # Keep the last published card available if the external stats service is down.
+          curl -s --fail --connect-timeout 15 --max-time 60 --retry 3 \
+            "https://raw.githubusercontent.com/${{ github.repository_owner }}/${{ github.event.repository.name || 'OnlyDev321' }}/output/stats.svg" \
+            -o dist/stats.svg || true
+
+          if curl -s --fail --connect-timeout 15 --max-time 60 --retry 3 \
+            "https://github-readme-stats-eight-theta.vercel.app/api?username=${{ github.repository_owner }}&cache_seconds=7200&layout=compact&theme=radical&border_radius=10" \
+            -o dist/tmp_stats.svg && grep -q '<svg' dist/tmp_stats.svg; then
+            mv dist/tmp_stats.svg dist/stats.svg
+          else
+            echo "Stats service unavailable; keeping the last valid card or using a placeholder."
+            rm -f dist/tmp_stats.svg
+          fi
+
+          if [ ! -s dist/stats.svg ] || ! grep -q '<svg' dist/stats.svg; then
+            cat > dist/stats.svg <<'SVG'
+          <svg xmlns="http://www.w3.org/2000/svg" width="495" height="180" viewBox="0 0 495 180" role="img" aria-labelledby="title desc">
+            <title id="title">GitHub Stats</title>
+            <desc id="desc">GitHub stats are temporarily unavailable.</desc>
+            <rect width="494" height="179" x="0.5" y="0.5" rx="10" fill="#141321" stroke="#fe428e"/>
+            <text x="247.5" y="78" fill="#fe428e" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">GitHub Stats</text>
+            <text x="247.5" y="112" fill="#a9fef7" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Stats are temporarily unavailable</text>
+          </svg>
+          SVG
+          fi
 
       - name: Generate streak stats
         uses: DenverCoder1/github-readme-streak-stats@main
