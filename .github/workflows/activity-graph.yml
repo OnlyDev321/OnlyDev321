@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - '.github/workflows/**'
+      - 'scripts/generate-cyberpunk-card.js'
 
 jobs:
   build:

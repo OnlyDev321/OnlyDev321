@@ -420,6 +420,52 @@ function generateLanguagesCard(languages, options = {}) {
     `.trim();
 }
 
+function escapeXml(value) {
+    return String(value).replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;'
+    })[char]);
+}
+
+function generateCompactLanguagesCard(languages) {
+    const items = languages.filter(({ count }) => count > 0)
+        .sort((a, b) => b.count - a.count).slice(0, 8);
+    const width = 420;
+    const height = Math.max(134, 114 + Math.ceil(items.length / 2) * 26);
+    // Normalize over the displayed languages, matching the compact card.
+    const total = items.reduce((sum, { count }) => sum + count, 0) || 1;
+    const colors = {
+        TypeScript: '#3178c6', JavaScript: '#f1e05a', Java: '#b07219',
+        Python: '#3572a5', HTML: '#e34c26', CSS: '#563d7c',
+        'C++': '#f34b7d', C: '#a8b9cc', Shell: '#89e051',
+        'Vim Script': '#199f4b', CMake: '#999999', Go: '#00add8',
+        Rust: '#dea584', Ruby: '#701516', PHP: '#4f5d95', Swift: '#f05138'
+    };
+    const colorFor = name => colors[name] || `hsl(${Array.from(name).reduce((hash, c) => (hash * 31 + c.charCodeAt(0)) % 360, 0)}, 55%, 62%)`;
+    let offset = 28;
+    const segments = items.map(({ name, count }) => {
+        const segmentWidth = 364 * count / total;
+        const segment = `<rect x="${offset}" y="64" width="${segmentWidth}" height="9" fill="${colorFor(name)}"/>`;
+        offset += segmentWidth;
+        return segment;
+    }).join('');
+    const labels = items.map(({ name, count }, index) => {
+        const x = 28 + (index % 2) * 188;
+        const y = 100 + Math.floor(index / 2) * 26;
+        const label = name.length > 16 ? `${name.slice(0, 15)}…` : name;
+        return `<g><title>${escapeXml(name)}</title><circle cx="${x + 5}" cy="${y - 4}" r="5" fill="${colorFor(name)}"/><text x="${x + 16}" y="${y}" fill="#63dce8" font-size="11.5">${escapeXml(label)} <tspan fill="#a4e8ed">${(count / total * 100).toFixed(2)}%</tspan></text></g>`;
+    }).join('');
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title description">
+    <title id="title">Most Used Languages</title>
+    <desc id="description">Code size distribution among the top eight languages in public repositories, excluding forks.</desc>
+    <defs><clipPath id="bar"><rect x="28" y="64" width="364" height="9" rx="4.5"/></clipPath></defs>
+    <rect x="0.5" y="0.5" width="419" height="${height - 1}" rx="8" fill="#151515" stroke="#b8b8bf"/>
+    <g font-family="Arial, Helvetica, sans-serif">
+    <text x="28" y="38" fill="#f4f4f5" font-size="20" font-weight="700">Most Used Languages</text>
+    <g clip-path="url(#bar)">${segments}</g>
+    ${labels || '<text x="28" y="100" fill="#a4e8ed" font-size="12">No language data available</text>'}
+    </g></svg>`;
+}
+
 async function main() {
     try {
         const languages = await getUserLanguages(USERNAME);
@@ -439,10 +485,15 @@ async function main() {
         const distSvgPath = path.join(distDir, 'cyberpunk-languages.svg');
         fs.writeFileSync(distSvgPath, svgContent, 'utf-8');
         console.log(`Saved card to ${distSvgPath}`);
+
+        const compactSvgPath = path.join(distDir, 'top-languages.svg');
+        fs.writeFileSync(compactSvgPath, generateCompactLanguagesCard(languages), 'utf-8');
+        console.log(`Saved compact card to ${compactSvgPath}`);
     } catch (err) {
         console.error('Failed to generate card:', err);
         process.exit(1);
     }
 }
 
-main();
+if (require.main === module) main();
+module.exports = { generateCompactLanguagesCard };
