@@ -1,0 +1,498 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#02030a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </radialGradient>
+
+        <radialGradient id="nebulaGradient" cx="30%" cy="35%" r="65%">
+            <stop offset="0%" style="stop-color:#00c8ff;stop-opacity:0.14" />
+            <stop offset="50%" style="stop-color:#00c8ff;stop-opacity:0.07" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+        </radialGradient>
+
+        <radialGradient id="galaxyGradient" cx="70%" cy="25%" r="60%">
+            <stop offset="0%" style="stop-color:#00c8ff;stop-opacity:0.22" />
+            <stop offset="45%" style="stop-color:#00c8ff;stop-opacity:0.12" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+        </radialGradient>
+
+        <pattern id="gridPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#00c8ff" stroke-width="1" opacity="0.08"/>
+        </pattern>
+
+        <radialGradient id="bubbleFill" cx="35%" cy="35%" r="70%">
+            <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:0.9" />
+            <stop offset="100%" style="stop-color:#888888;stop-opacity:0.6" />
+        </radialGradient>
+
+        <radialGradient id="bubbleGlow" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" style="stop-color:#00c8ff;stop-opacity:0.1" />
+            <stop offset="100%" style="stop-color:#00c8ff;stop-opacity:0" />
+        </radialGradient>
+
+        <radialGradient id="planetBody" cx="35%" cy="35%" r="70%">
+            <stop offset="0%" style="stop-color:#00c8ff;stop-opacity:0.55" />
+            <stop offset="60%" style="stop-color:#00c8ff;stop-opacity:0.32" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:0.28" />
+        </radialGradient>
+
+        <radialGradient id="planetGlow" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" style="stop-color:#00c8ff;stop-opacity:0.18" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+        </radialGradient>
+
+        <linearGradient id="planetRim" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#00c8ff;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#00c8ff;stop-opacity:0.4" />
+            <stop offset="100%" style="stop-color:#00c8ff;stop-opacity:0" />
+        </linearGradient>
+
+        <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="1.8" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <linearGradient id="titleBarGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0.0%" stop-color="hsl(245, 70%, 60%)"/><stop offset="49.1%" stop-color="hsl(245, 70%, 60%)"/><stop offset="49.1%" stop-color="hsl(26, 70%, 60%)"/><stop offset="68.8%" stop-color="hsl(26, 70%, 60%)"/><stop offset="68.8%" stop-color="hsl(261, 70%, 60%)"/><stop offset="81.3%" stop-color="hsl(261, 70%, 60%)"/><stop offset="81.3%" stop-color="hsl(244, 70%, 60%)"/><stop offset="91.7%" stop-color="hsl(244, 70%, 60%)"/><stop offset="91.7%" stop-color="hsl(83, 70%, 60%)"/><stop offset="95.0%" stop-color="hsl(83, 70%, 60%)"/><stop offset="95.0%" stop-color="hsl(99, 70%, 60%)"/><stop offset="98.2%" stop-color="hsl(99, 70%, 60%)"/><stop offset="98.2%" stop-color="hsl(243, 70%, 60%)"/><stop offset="99.6%" stop-color="hsl(243, 70%, 60%)"/><stop offset="99.6%" stop-color="hsl(144, 70%, 60%)"/><stop offset="100.0%" stop-color="hsl(144, 70%, 60%)"/>
+        </linearGradient>
+    </defs>
+
+    <style>
+        text {
+            font-family: 'Orbitron', 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 700;
+        }
+
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes spaceFloat {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-6px, -4px); }
+        }
+
+        @keyframes spaceDrift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(5px, 6px); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .bubble {
+            animation: floatY 6s ease-in-out infinite;
+            transform-origin: 600px 300px;
+        }
+
+        .space-icons {
+            animation: spaceFloat 12s ease-in-out infinite;
+        }
+
+        .space-icons .ship-rocket {
+            animation: spaceDrift 9s ease-in-out infinite;
+        }
+
+        .space-icons .ship-ufo {
+            animation: spaceFloat 10s ease-in-out infinite reverse;
+        }
+
+        .rings {
+            animation: spin 80s linear infinite;
+            transform-origin: 600px 300px;
+        }
+    </style>
+
+    <rect width="1200" height="600" rx="12" fill="url(#bgGradient)" />
+    <rect width="1200" height="600" rx="12" fill="#000000" opacity="0.22" />
+    <rect width="1200" height="600" rx="12" fill="url(#nebulaGradient)" opacity="0.38" />
+    <ellipse cx="860" cy="170" rx="240" ry="140" fill="url(#galaxyGradient)" opacity="0.6" />
+    <rect width="1200" height="600" rx="12" fill="url(#gridPattern)" opacity="0.18" />
+
+    <g opacity="0.18">
+        <line x1="50" y1="0" x2="50" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="100" y1="0" x2="100" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="150" y1="0" x2="150" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="200" y1="0" x2="200" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="250" y1="0" x2="250" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="300" y1="0" x2="300" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="350" y1="0" x2="350" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="400" y1="0" x2="400" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="450" y1="0" x2="450" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="500" y1="0" x2="500" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="550" y1="0" x2="550" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="600" y1="0" x2="600" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="650" y1="0" x2="650" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="700" y1="0" x2="700" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="750" y1="0" x2="750" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="800" y1="0" x2="800" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="850" y1="0" x2="850" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="900" y1="0" x2="900" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="950" y1="0" x2="950" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="1000" y1="0" x2="1000" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="1050" y1="0" x2="1050" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="1100" y1="0" x2="1100" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="1150" y1="0" x2="1150" y2="600" stroke="#00c8ff" stroke-width="0.50"/><line x1="1200" y1="0" x2="1200" y2="600" stroke="#00c8ff" stroke-width="0.50"/>
+        <line x1="0" y1="50" x2="1200" y2="50" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="100" x2="1200" y2="100" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="150" x2="1200" y2="150" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="200" x2="1200" y2="200" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="250" x2="1200" y2="250" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="300" x2="1200" y2="300" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="350" x2="1200" y2="350" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="400" x2="1200" y2="400" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="450" x2="1200" y2="450" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="500" x2="1200" y2="500" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="550" x2="1200" y2="550" stroke="#00c8ff" stroke-width="0.50"/><line x1="0" y1="600" x2="1200" y2="600" stroke="#00c8ff" stroke-width="0.50"/>
+    </g>
+
+    <g>
+            <circle cx="0" cy="0" r="1.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="3s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="113" cy="61" r="2.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="5s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="226" cy="122" r="3.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="7s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="339" cy="183" r="1.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="3s" begin="0.6000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="452" cy="244" r="2.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="5s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="565" cy="305" r="3.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="7s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="678" cy="366" r="1.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="3s" begin="1.2000000000000002s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="791" cy="427" r="2.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="5s" begin="1.4000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="904" cy="488" r="3.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="7s" begin="1.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1017" cy="549" r="1.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="3s" begin="1.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1130" cy="10" r="2.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="5s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="43" cy="71" r="3.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="7s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="156" cy="132" r="1.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="3s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="269" cy="193" r="2.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="5s" begin="0.6000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="382" cy="254" r="3.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="7s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="495" cy="315" r="1.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="3s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="608" cy="376" r="2.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="5s" begin="1.2000000000000002s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="721" cy="437" r="3.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="7s" begin="1.4000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="834" cy="498" r="1.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="3s" begin="1.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="947" cy="559" r="2.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="5s" begin="1.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1060" cy="20" r="3.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="7s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1173" cy="81" r="1.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="3s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="86" cy="142" r="2.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="5s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="199" cy="203" r="3.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="7s" begin="0.6000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="312" cy="264" r="1.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="3s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="425" cy="325" r="2.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="5s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="538" cy="386" r="3.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="7s" begin="1.2000000000000002s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="651" cy="447" r="1.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="3s" begin="1.4000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="764" cy="508" r="2.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="5s" begin="1.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="877" cy="569" r="3.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="7s" begin="1.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="990" cy="30" r="1.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="3s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1103" cy="91" r="2.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="5s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="16" cy="152" r="3.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="7s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="129" cy="213" r="1.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="3s" begin="0.6000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="242" cy="274" r="2.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="5s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="355" cy="335" r="3.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="7s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="468" cy="396" r="1.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="3s" begin="1.2000000000000002s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="581" cy="457" r="2.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="5s" begin="1.4000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="694" cy="518" r="3.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="7s" begin="1.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="807" cy="579" r="1.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="3s" begin="1.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="920" cy="40" r="2.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="5s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1033" cy="101" r="3.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="7s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1146" cy="162" r="1.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="3s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="59" cy="223" r="2.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="5s" begin="0.6000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="172" cy="284" r="3.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="7s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="285" cy="345" r="1.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="3s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="398" cy="406" r="2.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="5s" begin="1.2000000000000002s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="511" cy="467" r="3.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="7s" begin="1.4000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="624" cy="528" r="1.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="3s" begin="1.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="737" cy="589" r="2.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="5s" begin="1.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="850" cy="50" r="3.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="7s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="963" cy="111" r="1.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="3s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1076" cy="172" r="2.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="5s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1189" cy="233" r="3.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="7s" begin="0.6000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="102" cy="294" r="1.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="3s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="215" cy="355" r="2.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="5s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="328" cy="416" r="3.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="7s" begin="1.2000000000000002s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="441" cy="477" r="1.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="3s" begin="1.4000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="554" cy="538" r="2.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="5s" begin="1.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="667" cy="599" r="3.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="7s" begin="1.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="780" cy="60" r="1.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="3s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="893" cy="121" r="2.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="5s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1006" cy="182" r="3.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="7s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1119" cy="243" r="1.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="3s" begin="0.6000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="32" cy="304" r="2.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="5s" begin="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="145" cy="365" r="3.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="7s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="258" cy="426" r="1.0" fill="#ffffff" opacity="0.36">
+                <animate attributeName="opacity" values="0.36;0.11;0.36" dur="3s" begin="1.2000000000000002s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="371" cy="487" r="2.0" fill="#ffffff" opacity="0.44">
+                <animate attributeName="opacity" values="0.44;0.13;0.44" dur="5s" begin="1.4000000000000001s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="484" cy="548" r="3.0" fill="#ffffff" opacity="0.20">
+                <animate attributeName="opacity" values="0.20;0.06;0.20" dur="7s" begin="1.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="597" cy="9" r="1.0" fill="#ffffff" opacity="0.28">
+                <animate attributeName="opacity" values="0.28;0.08;0.28" dur="3s" begin="1.8s" repeatCount="indefinite" />
+            </circle></g>
+
+    <g class="space-icons" opacity="0.55">
+        <g class="ship-rocket" transform="translate(140 220)">
+            <ellipse cx="0" cy="10" rx="10" ry="16" fill="#00c8ff" opacity="0.9" />
+            <path d="M -10 10 L 0 -18 L 10 10 Z" fill="#00c8ff" opacity="0.9" />
+            <circle cx="0" cy="4" r="4" fill="#ffffff" opacity="0.75" />
+            <path d="M -5 22 L 0 32 L 5 22 Z" fill="#00c8ff" opacity="0.7" />
+        </g>
+        <g class="ship-ufo" transform="translate(195 285)">
+            <ellipse cx="0" cy="0" rx="20" ry="6" fill="#00c8ff" opacity="0.8" />
+            <ellipse cx="0" cy="-6" rx="10" ry="4" fill="#00c8ff" opacity="0.8" />
+            <circle cx="-8" cy="0" r="1.5" fill="#ffffff" opacity="0.7" />
+            <circle cx="0" cy="0" r="1.5" fill="#ffffff" opacity="0.7" />
+            <circle cx="8" cy="0" r="1.5" fill="#ffffff" opacity="0.7" />
+        </g>
+    </g>
+
+    <g opacity="0.75">
+        <circle cx="600" cy="300" r="110" fill="url(#planetGlow)" opacity="0.6" />
+        <circle cx="600" cy="300" r="85" fill="url(#planetBody)" />
+        <ellipse cx="600" cy="300" rx="118" ry="28" fill="url(#planetRim)" opacity="0.78" />
+    </g>
+
+    <g opacity="0.9">
+        
+            <g class="bubble" style="animation-delay:0.5s">
+                <rect x="672.1" y="154.2" width="260.0" height="260.0" rx="14.0" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="678.1" y="160.2" width="248.0" height="248.0" rx="10.0" fill="none" stroke="hsla(245, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 674.1 178.2 V 156.2 H 696.1" fill="none" stroke="hsl(245, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 908.1 156.2 H 930.1 V 178.2" fill="none" stroke="hsl(245, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 674.1 390.2 V 412.2 H 696.1" fill="none" stroke="hsl(245, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 908.1 412.2 H 930.1 V 390.2" fill="none" stroke="hsl(245, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="682.1" y="164.2" width="240.0" height="240.0" rx="8.0" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="802.1" y="276.2" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">TypeScript</text>
+                <text x="802.1" y="304.2" text-anchor="middle" fill="hsl(245, 70%, 60%)" font-size="16" font-weight="600">49%</text>
+            </g>
+        
+            <g class="bubble" style="animation-delay:0.6s">
+                <rect x="681.0" y="426.4" width="149.6" height="149.6" rx="14.0" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="687.0" y="432.4" width="137.6" height="137.6" rx="10.0" fill="none" stroke="hsla(26, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 683.0 450.4 V 428.4 H 705.0" fill="none" stroke="hsl(26, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 806.6 428.4 H 828.6 V 450.4" fill="none" stroke="hsl(26, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 683.0 552.0 V 574.0 H 705.0" fill="none" stroke="hsl(26, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 806.6 574.0 H 828.6 V 552.0" fill="none" stroke="hsl(26, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="691.0" y="436.4" width="129.6" height="129.6" rx="8.0" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="755.8" y="493.2" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">Java</text>
+                <text x="755.8" y="521.2" text-anchor="middle" fill="hsl(26, 70%, 60%)" font-size="16" font-weight="600">20%</text>
+            </g>
+        
+            <g class="bubble" style="animation-delay:1.3s">
+                <rect x="494.2" y="453.3" width="122.7" height="122.7" rx="14.0" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="500.2" y="459.3" width="110.7" height="110.7" rx="10.0" fill="none" stroke="hsla(261, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 496.2 477.3 V 455.3 H 518.2" fill="none" stroke="hsl(261, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 593.0 455.3 H 615.0 V 477.3" fill="none" stroke="hsl(261, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 496.2 552.0 V 574.0 H 518.2" fill="none" stroke="hsl(261, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 593.0 574.0 H 615.0 V 552.0" fill="none" stroke="hsl(261, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="504.2" y="463.3" width="102.7" height="102.7" rx="8.0" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="555.6" y="506.6" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">JavaScript</text>
+                <text x="555.6" y="534.6" text-anchor="middle" fill="hsl(261, 70%, 60%)" font-size="16" font-weight="600">12%</text>
+            </g>
+        
+            <g class="bubble" style="animation-delay:1.6s">
+                <rect x="437.7" y="392.5" width="115.0" height="115.0" rx="14.0" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="443.7" y="398.5" width="103.0" height="103.0" rx="10.0" fill="none" stroke="hsla(244, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 439.7 416.5 V 394.5 H 461.7" fill="none" stroke="hsl(244, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 528.7 394.5 H 550.7 V 416.5" fill="none" stroke="hsl(244, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 439.7 483.4 V 505.4 H 461.7" fill="none" stroke="hsl(244, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 528.7 505.4 H 550.7 V 483.4" fill="none" stroke="hsl(244, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="447.7" y="402.5" width="95.0" height="95.0" rx="8.0" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="495.2" y="442.0" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">Python</text>
+                <text x="495.2" y="470.0" text-anchor="middle" fill="hsl(244, 70%, 60%)" font-size="16" font-weight="600">10%</text>
+            </g>
+        
+            <g class="bubble" style="animation-delay:1.9s">
+                <rect x="353.7" y="232.6" width="88.5" height="88.5" rx="11.1" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="359.7" y="238.6" width="76.5" height="76.5" rx="7.1" fill="none" stroke="hsla(83, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 355.7 252.3 V 234.6 H 373.4" fill="none" stroke="hsl(83, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 422.6 234.6 H 440.3 V 252.3" fill="none" stroke="hsl(83, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 355.7 301.4 V 319.1 H 373.4" fill="none" stroke="hsl(83, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 422.6 319.1 H 440.3 V 301.4" fill="none" stroke="hsl(83, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="363.7" y="242.6" width="68.5" height="68.5" rx="5.1" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="398.0" y="268.8" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">CSS</text>
+                <text x="398.0" y="296.8" text-anchor="middle" fill="hsl(83, 70%, 60%)" font-size="16" font-weight="600">3%</text>
+            </g>
+        
+            <g class="bubble" style="animation-delay:2.3s">
+                <rect x="391.9" y="115.0" width="87.8" height="87.8" rx="11.0" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="397.9" y="121.0" width="75.8" height="75.8" rx="7.0" fill="none" stroke="hsla(99, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 393.9 134.6 V 117.0 H 411.4" fill="none" stroke="hsl(99, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 460.1 117.0 H 477.6 V 134.6" fill="none" stroke="hsl(99, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 393.9 183.2 V 200.8 H 411.4" fill="none" stroke="hsl(99, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 460.1 200.8 H 477.6 V 183.2" fill="none" stroke="hsl(99, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="401.9" y="125.0" width="67.8" height="67.8" rx="5.0" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="435.8" y="150.9" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">HTML</text>
+                <text x="435.8" y="178.9" text-anchor="middle" fill="hsl(99, 70%, 60%)" font-size="16" font-weight="600">3%</text>
+            </g>
+        
+            <g class="bubble" style="animation-delay:2.7s">
+                <rect x="542.5" y="79.3" width="81.3" height="81.3" rx="10.2" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="548.5" y="85.3" width="69.3" height="69.3" rx="6.2" fill="none" stroke="hsla(243, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 544.5 97.5 V 81.3 H 560.7" fill="none" stroke="hsl(243, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 605.5 81.3 H 621.8 V 97.5" fill="none" stroke="hsl(243, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 544.5 142.3 V 158.6 H 560.7" fill="none" stroke="hsl(243, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 605.5 158.6 H 621.8 V 142.3" fill="none" stroke="hsl(243, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="552.5" y="89.3" width="61.3" height="61.3" rx="4.2" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="583.1" y="111.9" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">C++</text>
+                <text x="583.1" y="139.9" text-anchor="middle" fill="hsl(243, 70%, 60%)" font-size="16" font-weight="600">1%</text>
+            </g>
+        
+            <g class="bubble" style="animation-delay:2.8s">
+                <rect x="740.5" y="114.6" width="77.5" height="77.5" rx="9.7" fill="url(#bubbleFill)" opacity="0.2"/>
+                <rect x="746.5" y="120.6" width="65.5" height="65.5" rx="5.7" fill="none" stroke="hsla(144, 70%, 60%, 0.45)" stroke-width="1.0" opacity="0.55"/>
+                <path d="M 742.5 132.1 V 116.6 H 758.0" fill="none" stroke="hsl(144, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 800.5 116.6 H 816.0 V 132.1" fill="none" stroke="hsl(144, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 742.5 174.6 V 190.1 H 758.0" fill="none" stroke="hsl(144, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M 800.5 190.1 H 816.0 V 174.6" fill="none" stroke="hsl(144, 70%, 60%)" stroke-width="1.6" stroke-linecap="round"/>
+                <rect x="750.5" y="124.6" width="57.5" height="57.5" rx="3.7" fill="url(#bubbleGlow)" opacity="0.22" filter="url(#glow)"/>
+                <text x="779.2" y="145.4" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" filter="url(#glow)">Shell</text>
+                <text x="779.2" y="173.4" text-anchor="middle" fill="hsl(144, 70%, 60%)" font-size="16" font-weight="600">0%</text>
+            </g>
+        
+    </g>
+
+    <g class="rings" opacity="0.5">
+        <circle cx="600" cy="300" r="140" fill="none" stroke="#00c8ff" stroke-dasharray="10 8" stroke-width="1"/>
+        <circle cx="600" cy="300" r="210" fill="none" stroke="#00c8ff" stroke-dasharray="6 10" stroke-width="1" opacity="0.4"/>
+    </g>
+
+    <text class="title" x="600" y="300" text-anchor="middle" dominant-baseline="middle" fill="#00c8ff" font-size="22" font-weight="700" letter-spacing="1">TOP LANGUAGES</text>
+
+    
+            <g class="info-card">
+                <rect x="851.4845474224094" y="395.806842570797" width="320" height="190" rx="12" fill="#0a0e27" opacity="0.6" stroke="hsl(245, 70%, 60%)" stroke-width="1"/>
+                <path d="M 845.4845474224094 399.806842570797 V 389.806842570797 H 855.4845474224094" fill="none" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 1167.4845474224094 389.806842570797 H 1177.4845474224094 V 399.806842570797" fill="none" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 845.4845474224094 581.806842570797 V 591.806842570797 H 855.4845474224094" fill="none" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 1167.4845474224094 591.806842570797 H 1177.4845474224094 V 581.806842570797" fill="none" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="869.4845474224094" y="423.806842570797" fill="#ffffff" font-size="14" font-weight="700" letter-spacing="1" opacity="0.85">TOP 5 LANGUAGES</text>
+                <rect x="865.4845474224094" y="431.806842570797" width="292" height="6" rx="3" fill="url(#titleBarGradient)" opacity="0.95"/>
+                
+                <text x="869.4845474224094" y="461.806842570797" fill="hsl(245, 70%, 60%)" font-size="14" font-weight="700">1.</text>
+                <text x="891.4845474224094" y="461.806842570797" fill="#ffffff" font-size="14" font-weight="600">TypeScript</text>
+                <text x="1153.4845474224094" y="461.806842570797" text-anchor="end" fill="hsl(245, 70%, 60%)" font-size="14" font-weight="700">49%</text>
+            
+                <text x="869.4845474224094" y="485.806842570797" fill="hsl(26, 70%, 60%)" font-size="14" font-weight="700">2.</text>
+                <text x="891.4845474224094" y="485.806842570797" fill="#ffffff" font-size="14" font-weight="600">Java</text>
+                <text x="1153.4845474224094" y="485.806842570797" text-anchor="end" fill="hsl(26, 70%, 60%)" font-size="14" font-weight="700">20%</text>
+            
+                <text x="869.4845474224094" y="509.806842570797" fill="hsl(261, 70%, 60%)" font-size="14" font-weight="700">3.</text>
+                <text x="891.4845474224094" y="509.806842570797" fill="#ffffff" font-size="14" font-weight="600">JavaScript</text>
+                <text x="1153.4845474224094" y="509.806842570797" text-anchor="end" fill="hsl(261, 70%, 60%)" font-size="14" font-weight="700">12%</text>
+            
+                <text x="869.4845474224094" y="533.806842570797" fill="hsl(244, 70%, 60%)" font-size="14" font-weight="700">4.</text>
+                <text x="891.4845474224094" y="533.806842570797" fill="#ffffff" font-size="14" font-weight="600">Python</text>
+                <text x="1153.4845474224094" y="533.806842570797" text-anchor="end" fill="hsl(244, 70%, 60%)" font-size="14" font-weight="700">10%</text>
+            
+                <text x="869.4845474224094" y="557.806842570797" fill="hsl(83, 70%, 60%)" font-size="14" font-weight="700">5.</text>
+                <text x="891.4845474224094" y="557.806842570797" fill="#ffffff" font-size="14" font-weight="600">CSS</text>
+                <text x="1153.4845474224094" y="557.806842570797" text-anchor="end" fill="hsl(83, 70%, 60%)" font-size="14" font-weight="700">3%</text>
+            
+            </g>
+        
+</svg>
